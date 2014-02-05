@@ -54,7 +54,7 @@ return array(
 		
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'moesql.db',
 			'database'  => 'cardsdb',
 			'username'  => 'web',
 			'password'  => 'Z8VXyM25thdsnM8r',
