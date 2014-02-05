@@ -52,16 +52,30 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
+		if($_SERVER['http_host'] == 'www.sean-ruel.com'){
+			'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'database',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => 'moesql.db',
+			'database'  => 'cardsdb',
+			'username'  => 'web',
+			'password'  => 'Z8VXyM25thdsnM8r',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+			),
+		} else {
+			'mysql' => array(
+				'driver'    => 'mysql',
+				'host'      => 'localhost',
+				'database'  => 'database',
+				'username'  => 'root',
+				'password'  => '',
+				'charset'   => 'utf8',
+				'collation' => 'utf8_unicode_ci',
+				'prefix'    => '',
+			),
+		}
+
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
