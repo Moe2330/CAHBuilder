@@ -1,0 +1,26 @@
+body{
+	margin:0;
+	padding:0;
+	background-color:grey;
+}
+
+.card{
+	width:200px;
+	height:290px;
+	margin:15px;
+	float:left;
+	border-radius:10px;
+	font-weight:bold;
+	text-align:center;
+	padding:10px;
+}
+
+.Black{
+	background-color:black;
+	color:white;	
+}
+
+.White{
+	background-color:white;
+	color:black;
+}
