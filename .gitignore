@@ -220,3 +220,4 @@ Vagrantfile
 .vagrant/
 vagrant/
 puppet/
+*.sublime-workspace
