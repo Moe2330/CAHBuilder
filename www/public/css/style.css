@@ -1,13 +1,15 @@
 body{
-	margin:0;
-	padding:0;
 	background-color:grey;
+}
+
+h1{
+	text-align:center;
 }
 
 .card{
 	width:200px;
 	height:290px;
-	margin:15px;
+	margin:14px;
 	float:left;
 	border-radius:10px;
 	font-weight:bold;
@@ -15,12 +17,12 @@ body{
 	padding:10px;
 }
 
-.Black{
+.black{
 	background-color:black;
 	color:white;	
 }
 
-.White{
+.white{
 	background-color:white;
 	color:black;
 }

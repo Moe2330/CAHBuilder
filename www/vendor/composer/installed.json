@@ -1560,5 +1560,364 @@
             "framework",
             "laravel"
         ]
+    },
+    {
+        "name": "twitter/bootstrap",
+        "version": "v3.1.0",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "1409cde7e800ca83fd761f87e5ad8f0d259e38d1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1409cde7e800ca83fd761f87e5ad8f0d259e38d1",
+            "reference": "1409cde7e800ca83fd761f87e5ad8f0d259e38d1",
+            "shasum": ""
+        },
+        "time": "2014-01-30 16:30:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Thornton",
+                "email": "jacobthornton@gmail.com"
+            },
+            {
+                "name": "Mark Otto",
+                "email": "markdotto@gmail.com"
+            }
+        ],
+        "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+        "homepage": "http://getbootstrap.com",
+        "keywords": [
+            "bootstrap",
+            "css"
+        ]
+    },
+    {
+        "name": "kriswallsmith/assetic",
+        "version": "v1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/assetic.git",
+            "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/735cffd3982c6e8cdebe292d5db39d077f65890f",
+            "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.1",
+            "symfony/process": "~2.1"
+        },
+        "require-dev": {
+            "cssmin/cssmin": "*",
+            "joliclic/javascript-packer": "*",
+            "kamicane/packager": "*",
+            "leafo/lessphp": "*",
+            "leafo/scssphp": "*",
+            "leafo/scssphp-compass": "*",
+            "mrclay/minify": "*",
+            "phpunit/phpunit": "~3.7",
+            "ptachoire/cssembed": "*",
+            "twig/twig": "~1.6"
+        },
+        "suggest": {
+            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+            "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+            "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+            "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+            "twig/twig": "Assetic provides the integration with the Twig templating engine"
+        },
+        "time": "2013-07-19 00:03:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Assetic": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Asset Management for PHP",
+        "homepage": "https://github.com/kriswallsmith/assetic",
+        "keywords": [
+            "assets",
+            "compression",
+            "minification"
+        ]
+    },
+    {
+        "name": "robloach/component-installer",
+        "version": "0.0.12",
+        "version_normalized": "0.0.12.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/RobLoach/component-installer.git",
+            "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+            "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.*",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "composer/composer": "1.*"
+        },
+        "time": "2013-08-31 23:46:48",
+        "type": "composer-installer",
+        "extra": {
+            "class": "ComponentInstaller\\Installer"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "ComponentInstaller": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Rob Loach",
+                "email": "robloach@gmail.com",
+                "homepage": "http://robloach.net"
+            }
+        ],
+        "description": "Allows installation of Components via Composer."
+    },
+    {
+        "name": "components/normalize.css",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/normalize.css.git",
+            "reference": "979bb1d1710554f8c298544d39d985310c2f5070"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/normalize.css/zipball/979bb1d1710554f8c298544d39d985310c2f5070",
+            "reference": "979bb1d1710554f8c298544d39d985310c2f5070",
+            "shasum": ""
+        },
+        "require": {
+            "robloach/component-installer": "*"
+        },
+        "time": "2013-10-24 03:37:49",
+        "type": "component",
+        "extra": {
+            "component": {
+                "name": "normalize-css",
+                "styles": [
+                    "normalize.css"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.",
+        "homepage": "http://necolas.github.com/normalize.css/"
+    },
+    {
+        "name": "components/modernizr",
+        "version": "2.6.2",
+        "version_normalized": "2.6.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/modernizr.git",
+            "reference": "c470050f9906b1197ddaa7aace41f73eba5f4ecf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/modernizr/zipball/c470050f9906b1197ddaa7aace41f73eba5f4ecf",
+            "reference": "c470050f9906b1197ddaa7aace41f73eba5f4ecf",
+            "shasum": ""
+        },
+        "require": {
+            "robloach/component-installer": "*"
+        },
+        "time": "2013-03-31 12:34:31",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "modernizr.js"
+                ],
+                "shim": {
+                    "exports": "window.Modernizr"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Modernizr",
+                "homepage": "http://modernizr.com"
+            },
+            {
+                "name": "Faruk Ates"
+            },
+            {
+                "name": "Paul Irish"
+            },
+            {
+                "name": "Alex Sexton"
+            },
+            {
+                "name": "Ryan Seddon"
+            },
+            {
+                "name": "Alexander Farkas"
+            },
+            {
+                "name": "Ben Alman"
+            },
+            {
+                "name": "Stu Cox"
+            }
+        ],
+        "description": "Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.",
+        "homepage": "http://modernizr.com",
+        "keywords": [
+            "CSS3",
+            "HTML5",
+            "browser",
+            "feature detection"
+        ]
+    },
+    {
+        "name": "components/jquery",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git",
+            "reference": "099ad075783a6189f13c1e742e03f9cc95654a27"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/jquery/zipball/099ad075783a6189f13c1e742e03f9cc95654a27",
+            "reference": "099ad075783a6189f13c1e742e03f9cc95654a27",
+            "shasum": ""
+        },
+        "require": {
+            "robloach/component-installer": "*"
+        },
+        "time": "2014-01-24 19:52:32",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "jquery.js"
+                ],
+                "files": [
+                    "jquery.min.js",
+                    "jquery.min.map",
+                    "jquery-migrate.js",
+                    "jquery-migrate.min.js"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "John Resig",
+                "email": "jeresig@gmail.com",
+                "homepage": "http://ejohn.org/"
+            }
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
+    },
+    {
+        "name": "components/html5-boilerplate",
+        "version": "4.3.0",
+        "version_normalized": "4.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/html5-boilerplate.git",
+            "reference": "5e639ba074a2a9da46d637f27a70097196592ac1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/html5-boilerplate/zipball/5e639ba074a2a9da46d637f27a70097196592ac1",
+            "reference": "5e639ba074a2a9da46d637f27a70097196592ac1",
+            "shasum": ""
+        },
+        "require": {
+            "components/jquery": ">=1.9.1",
+            "components/modernizr": ">=2.6.2",
+            "components/normalize.css": "1.*"
+        },
+        "time": "2013-09-11 04:44:47",
+        "type": "component",
+        "extra": {
+            "component": {
+                "styles": [
+                    "css/main.css"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.",
+        "homepage": "http://html5boilerplate.com",
+        "keywords": [
+            "CSS3",
+            "HTML5"
+        ]
     }
 ]

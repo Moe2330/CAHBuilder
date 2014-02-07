@@ -16,7 +16,8 @@ class CreateCardsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('text');
-			$table->string('type',5);
+			$table->string('color',5);
+			$table->string('createdBy',50);
 			$table->timestamps();
 		});
 	}

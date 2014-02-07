@@ -26,8 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('localhost'),
-	'dev' => array('www.sean-ruel.com'),
+	'local' => array('laravel'),
+	'dev' => array('sruel.nfshost.com'),
 
 ));
 
