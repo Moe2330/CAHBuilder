@@ -2,6 +2,10 @@
 
 class CardsController extends BaseController {
 
+	public function __construct(){
+		$this->beforeFilter('csrf',array('on'=>'post'));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

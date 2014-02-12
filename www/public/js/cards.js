@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			'url':'cards/vote',
-			'data': {'vote':dir,'id':id},
+			'data': {'vote':dir,'id':id,'_token':$('meta[name="csrf-token"]').attr('content')},
 			'type':'POST',
 		    'beforeSend': function(xhr, settings) {
   				console.log('ABOUT TO SEND');
