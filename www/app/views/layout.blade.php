@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}
 	{{ HTML::style('css/normalize.css') }}
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/bootstrap-theme.min.css') }}
@@ -14,7 +15,7 @@
 			<div class="col-md-6 col-md-offset-3">
 				<h1>Card Creator</h1>
 				@if(Session::has('message'))
-				<p class="alert">{{ Session::get('message') }}</p>
+				<p class="alert alert-warning">{{ Session::get('message') }}</p>
 				@endif
 			</div>
 		</div>

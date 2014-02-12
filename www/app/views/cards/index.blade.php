@@ -1,25 +1,52 @@
 @extends('layout')
 
 @section('content')
+	{{HTML::script('js/cards.js')}}
 	<div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<p><a href="{{ URL::to('cards/create',array('White'=>'White')) }}">Create a new white card!</a></p>
 		<p><a href="{{ URL::to('cards/create',array('Black'=>'Black')) }}">Create a new black card!</a></p>
-		<p>There are {{$whiteCount}} white cards</p>
-		<p>There are {{$blackCount}} black cards</p>
+		<p>There are {{$black['count']}} white cards</p>
+		<p>There are {{$white['count']}} black cards</p>
 	</div>
 	</div>
 	<div class="row">
-	<div class="col-md-2 col-md-offset-4" id="blackCards">
-	@foreach($blackCards as $blackCard)
-		<div class="card black">{{ $blackCard->text }}</div>
+	<div class="col-md-1 col-md-offset-4" id="blackCards">
+	@foreach($black['cards'] as $blackCard)
+		<div class="card black">
+			{{ $blackCard->text }}
+			<div class="card-footer">
+			<button class="btn btn-default btn-xs vote voteup_{{$blackCard->id}}" dir="up" id="{{$blackCard->id}}">
+				<span class="glyphicon glyphicon-arrow-up"></span>
+			</button>
+			<button class="btn btn-default btn-xs vote votedown_{{$blackCard->id}}" dir="down" id="{{$blackCard->id}}">
+				<span class="glyphicon glyphicon-arrow-down"></span>
+			</button> 
+			<span id="votes_{{$blackCard->id}}">
+				{{ $blackCard->votes }}
+			</span>
+			</div>
+		</div>
 	@endforeach
 	</div>
 	</div>
 	<div class="row">
 	<div class="col-md-12" id="whiteCards">
-	@foreach($whiteCards as $whiteCard)
-		<div class="card white">{{ $whiteCard->text }}</div>
+	@foreach($white['cards'] as $whiteCard)
+		<div class="card white">
+			{{ $whiteCard->text }}
+			<div class="card-footer">
+			<button class="btn btn-default btn-xs vote voteup_{{$whiteCard->id}}" dir="up" id="{{$whiteCard->id}}">
+				<span class="glyphicon glyphicon-arrow-up"></span>
+			</button>
+			<button class="btn btn-default btn-xs vote votedown_{{$whiteCard->id}}" dir="down" id="{{$whiteCard->id}}">
+				<span class="glyphicon glyphicon-arrow-down"></span>
+			</button> 
+			<span id="votes_{{$whiteCard->id}}">
+				{{ $whiteCard->votes }}
+			</span>
+			</div>
+		</div>
 	@endforeach
 	</div>
 	</div>

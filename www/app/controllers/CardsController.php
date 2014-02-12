@@ -2,10 +2,6 @@
 
 class CardsController extends BaseController {
 
-	public function __construct() {
-    	$this->beforeFilter('csrf', array('on'=>'post'));
-	}	
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -13,16 +9,19 @@ class CardsController extends BaseController {
 	 */
 	public function getIndex()
 	{
-		$blackCount = DB::table('cards')->where('color','Black')->count();
-		$whiteCount = DB::table('cards')->where('color','White')->count();
 
-		$whiteCards = Cards::orderBy(DB::raw('RAND()'))->where('color','White')->take(10)->get();
-		$blackCards = Cards::orderBy(DB::raw('RAND()'))->where('color','Black')->take(1)->get();
+		$black['count'] = DB::table('cards')->where('color','Black')->count();
+		$white['count'] = DB::table('cards')->where('color','White')->count();
 
-		/*$whiteCards = DB::table('cards')->where('color','White')->take(10)->get();
-		$blackCards = DB::table('cards')->where('color','Black')->take(1)->get();*/
+		$white['cards'] = Cards::orderBy(DB::raw('RAND()'))->where('color','White')->take(10)->get();
+		$black['cards'] = Cards::orderBy(DB::raw('RAND()'))->where('color','Black')->take(1)->get();
 
-		return View::make('cards/index')->with('whiteCards',$whiteCards)->with('whiteCount',$whiteCount)->with('blackCards',$blackCards)->with('blackCount',$blackCount);
+		$cards['black'] = $black;
+		$cards['white'] = $white;
+
+		$data = $cards;
+
+		return View::make('cards/index',$data);
 	}
 
 	/**
@@ -55,6 +54,14 @@ class CardsController extends BaseController {
 			$color = Input::get('color');
 			return Redirect::to('cards/create/'.$color)->with('message','The following errors occured')->withErrors($validator)->withInput();
 		}
+	}
+
+	public function postVote()
+	{
+		$vote = Input::get('vote');
+		$id = Input::get('id');
+		$card = Cards::find($id);
+		$vote == 'up' ? $card->increment('votes') : $card->decrement('votes');
 	}
 
 }

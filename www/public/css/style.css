@@ -6,6 +6,22 @@ h1{
 	text-align:center;
 }
 
+.card-footer{
+	color:black;
+	position:absolute;
+	bottom:0px;
+	width:180px;
+	margin-bottom:-15px;
+}
+
+#whiteCards{
+	z-index:1;
+}
+
+#blackCards{
+	z-index:999;
+}
+
 .card{
 	width:200px;
 	height:290px;
