@@ -220,4 +220,5 @@ Vagrantfile
 .vagrant/
 vagrant/
 puppet/
+www/vendor
 *.sublime-workspace
