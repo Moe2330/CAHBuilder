@@ -9,4 +9,6 @@ class Cards extends Eloquent{
 	 */
 	protected $table = 'cards';
 
+	public static $rules = array(
+		'cardText'=>'required');
 }

@@ -14,9 +14,11 @@ class CreateCardsTable extends Migration {
 	{
 		Schema::create('cards', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->unique();
+			$table->integer('votes')->default(0);
 			$table->text('text');
-			$table->string('type',5);
+			$table->string('color',5);
+			$table->string('createdBy',50);
 			$table->timestamps();
 		});
 	}

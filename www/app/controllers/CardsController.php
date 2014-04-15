@@ -1,16 +1,31 @@
 <?php
 
-class CardsController extends \BaseController {
+class CardsController extends BaseController {
+
+	public function __construct(){
+		$this->beforeFilter('csrf',array('on'=>'post'));
+	}
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		$cards = Cards::all();
-		return View::make('cards/index')->with('cards',$cards);
+
+		$black['count'] = DB::table('cards')->where('color','Black')->count();
+		$white['count'] = DB::table('cards')->where('color','White')->count();
+
+		$white['cards'] = Cards::orderBy(DB::raw('RAND()'))->where('color','White')->take(10)->get();
+		$black['cards'] = Cards::orderBy(DB::raw('RAND()'))->where('color','Black')->take(1)->get();
+
+		$cards['black'] = $black;
+		$cards['white'] = $white;
+
+		$data = $cards;
+
+		return View::make('cards/index',$data);
 	}
 
 	/**
@@ -18,63 +33,39 @@ class CardsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getCreate($color)
 	{
-		return "Test";
+		if($color == "White" || $color == "Black"){
+			return View::make('cards/create')->with('color',$color);
+		} else {
+			$cards = Cards::all();
+			return Redirect::to('cards')->with('message','Please select a valid color!')->with('cards',$cards);
+		}
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+	public function postCreate()
 	{
-		//
+		$validator = Validator::make(Input::all(), Cards::$rules);
+			if($validator->passes()){
+			$card = new Cards;
+			$card->color = Input::get('color');
+			$card->text = Input::get('cardText');
+			$card->createdBy = Input::get('name');
+			$card->save();
+
+			return Redirect::to('cards')->with('message','Thanks for creating a card!');
+		} else {
+			$color = Input::get('color');
+			return Redirect::to('cards/create/'.$color)->with('message','The following errors occured')->withErrors($validator)->withInput();
+		}
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function postVote()
 	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		$vote = Input::get('vote');
+		$id = Input::get('id');
+		$card = Cards::find($id);
+		$vote == 'up' ? $card->increment('votes') : $card->decrement('votes');
 	}
 
 }

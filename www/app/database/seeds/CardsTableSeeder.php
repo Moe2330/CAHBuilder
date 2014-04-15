@@ -3,14 +3,19 @@
 class CardsTableSeeder extends Seeder{
 	public function run(){
 		DB::table('cards')->delete();
-		Cards::create(array(
-			'text'=>'This is a white card',
-			'type'=>'White'
-			));
+
+		for($i=0;$i<20;$i++){
+			Cards::create(array(
+				'text'=>'This is white card #'.$i,
+				'color'=>'White',
+				'createdBy'=>'Moe'
+				));
+		}
 
 		Cards::create(array(
 			'text'=>'This is a black card',
-			'type'=>'Black'
+			'color'=>'Black',
+			'createdBy'=>'Moe'
 			));
 	}
 }

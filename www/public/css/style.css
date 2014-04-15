@@ -1,13 +1,38 @@
 body{
-	margin:0;
-	padding:0;
-	background-color:grey;
+	text-align:center;
+	background-color:#6D6D6D;
+	color:white;
+}
+
+h1{
+	text-align:center;
+}
+
+a{
+	color:white;
+	text-decoration:underline;
+}
+
+.card-footer{
+	position:absolute;
+	bottom:0px;
+	width:180px;
+	margin-bottom:30px;
+}
+
+#whiteCards{
+	z-index:1;
+}
+
+#blackCards{
+	z-index:999;
 }
 
 .card{
+	position:relative;
 	width:200px;
 	height:290px;
-	margin:15px;
+	margin:14px;
 	float:left;
 	border-radius:10px;
 	font-weight:bold;
@@ -15,12 +40,12 @@ body{
 	padding:10px;
 }
 
-.Black{
+.black{
 	background-color:black;
 	color:white;	
 }
 
-.White{
+.white{
 	background-color:white;
 	color:black;
 }

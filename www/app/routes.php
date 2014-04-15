@@ -11,4 +11,8 @@
 |
 */
 
-Route::resource('cards','CardsController');
+Route::get('/',function(){
+	View::make('cards/index');
+});
+
+Route::controller('cards','CardsController');
