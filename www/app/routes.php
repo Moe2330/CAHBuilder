@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/',function(){
-	View::make('cards/index');
-});
+/*Route::get('test',function(){
+  var_dump('test');
+});*/
 
-Route::controller('cards','CardsController');
+Route::controller('','CardsController');

@@ -54,10 +54,11 @@ return array(
 		
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'moesql.db',
+			'host'      => 'localhost',
+      // 'host' => 'moesql.db',
 			'database'  => 'cardsdb',
-			'username'  => 'web',
-			'password'  => 'Z8VXyM25thdsnM8r',
+      'username'  => 'web',
+      'password'  => 'Z8VXyM25thdsnM8r',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

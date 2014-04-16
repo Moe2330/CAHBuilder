@@ -33,7 +33,7 @@
 	</div>
 	</div>
 	<div class="row">
-	<h1>Select One:</h1>
+	<h1>Select One</h1>
 	<div class="col-md-12" id="whiteCards">
 	@foreach($white['cards'] as $whiteCard)
 		<div class="card white">
@@ -55,5 +55,11 @@
 		</div>
 	@endforeach
 	</div>
+	</div>
+	<div class="row">
+		<h1>Card History</h1>
+		<div class="col-md-12" id="cardhistory">
+		Display History of Selected Cards Here
+		</div>
 	</div>
 @stop

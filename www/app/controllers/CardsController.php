@@ -6,8 +6,47 @@ class CardsController extends BaseController {
 		$this->beforeFilter('csrf',array('on'=>'post'));
 	}
 
+	public function getLogin(){
+		if(!Auth::check()){
+			return View::make('cards/login');
+		} else {
+			return Redirect::to('index');
+		}
+	}
+
+	public function postLogin(){
+		$rules = array(
+			'email' => 'required|email',
+			'password'=>'required|alphaNum|min:3'
+			);
+
+		$validator = Validator::make(Input::all(), $rules);
+		if($validator->fails()){
+			return Redirect::to('login')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+		} else {
+			$userdata = array(
+				'email'=>Input::get('email'),
+				'password'=>Input::get('password')
+				);
+			if (Auth::attempt($userdata)){
+				return Redirect::to('index');
+			} else {
+				return Redirect::to('login')
+				->withErrors(array('password'=>'Invalid username or password'))
+				->withInput(Input::except('password'));
+			}
+		}
+	}
+
+	public function getLogout(){
+		Auth::logout();
+		return Redirect::to('index');
+	}
+
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the cards.
 	 *
 	 * @return Response
 	 */
@@ -23,13 +62,11 @@ class CardsController extends BaseController {
 		$cards['black'] = $black;
 		$cards['white'] = $white;
 
-		$data = $cards;
-
-		return View::make('cards/index',$data);
+		return View::make('cards/index',$cards);
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new card.
 	 *
 	 * @return Response
 	 */

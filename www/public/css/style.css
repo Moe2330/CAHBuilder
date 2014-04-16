@@ -13,11 +13,20 @@ a{
 	text-decoration:underline;
 }
 
+input {
+    color: black;
+}
+
 .card-footer{
 	position:absolute;
 	bottom:0px;
 	width:180px;
 	margin-bottom:30px;
+}
+
+.errors{
+	color:rgb(255, 168, 168);
+	font-weight:bold;
 }
 
 #whiteCards{
