@@ -6,6 +6,49 @@ class CardsController extends BaseController {
 		$this->beforeFilter('csrf',array('on'=>'post'));
 	}
 
+	public function getRegister(){
+		if(!Auth::check()){
+			return View::make('cards/register');
+		} else {
+			return Redirect::to('index');
+		}
+	}
+
+	public function postRegister(){
+		$rules = array
+		('firstname'=>'required|alpha|min:2',
+    	'lastname'=>'required|alpha|min:2',
+    	'username'=>'required|alphaNum|min:2',
+    	'email'=>'required|email|unique:users',
+    	'password'=>'required|alpha_num|between:6,12|confirmed',
+    	'password_confirmation'=>'required|alpha_num|between:6,12'
+    	);
+    	$validator = Validator::make(Input::all(), $rules);
+    	if($validator->passes()){
+    		$user = New User;
+    		$user->username = Input::get('username');
+    		$user->name = Input::get('firstname') . ' ' . Input::get('lastname');
+    		$user->email = Input::get('email');
+    		$user->password = Hash::make(Input::get('password'));
+    		$user->save();
+    		$userdata = array(
+    			'email'=>Input::get('email'),
+    			'password'=>Input::get('password')
+			);
+			if(Auth::attempt($userdata)){
+				return Redirect::to('index');
+			} else {
+				return Redirect::to('register')
+				->withErrors(array('password'=>'Invalid username or password'))
+				->withInput(Input::except('password','passowrd_confirmation'));
+			}
+    	} else {
+    		return Redirect::to('register')
+    		->withErrors($validator)
+    		->withInput(Input::except('password','password_confirmation'));
+    	}
+	}
+
 	public function getLogin(){
 		if(!Auth::check()){
 			return View::make('cards/login');
@@ -52,6 +95,10 @@ class CardsController extends BaseController {
 	 */
 	public function getIndex()
 	{
+		$cards['checkLogin'] = '';
+		if(!Auth::check()){
+			$cards['checkLogin'] = 'btn_disable';
+		}
 
 		$black['count'] = DB::table('cards')->where('color','Black')->count();
 		$white['count'] = DB::table('cards')->where('color','White')->count();

@@ -4,8 +4,9 @@
 {{ Form::open(array('url'=>'login')) }}
 <h1>Login</h1>
 <p class="errors">
-	{{ $errors->first('email') }}
-	{{ $errors->first('password') }}
+	@foreach($errors->all() as $error)
+		{{$error}} <br />
+	@endforeach
 </p>
 
 <p>

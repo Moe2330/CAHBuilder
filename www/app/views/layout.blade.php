@@ -15,6 +15,7 @@
 	<div class="container">
 		@if(!Auth::check())
 		<a href="{{ URL::to('login') }}">Login</a>
+		<a href="{{ URL::to('register') }}">Register</a>
 		@else
 		<a href="{{ URL::to('logout') }}">Logout</a>
 		@endif

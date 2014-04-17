@@ -1,10 +1,11 @@
 $(document).ready(function(){
+	$(".btn_disable").prop('disabled',true);
 	$(".vote").click(function(){
 		var id = $(this).attr("id");
 		var dir = $(this).attr("dir");
 
 		$.ajax({
-			'url':'cards/vote',
+			'url':'vote',
 			'data': {'vote':dir,'id':id,'_token':$('meta[name="csrf-token"]').attr('content')},
 			'type':'POST',
 		    'beforeSend': function(xhr, settings) {
